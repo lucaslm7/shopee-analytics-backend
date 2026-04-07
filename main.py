@@ -99,6 +99,7 @@ async def search(
             r = await client.get(url, headers=HEADERS)
             r.raise_for_status()
             data = r.json()
+            print("RESPOSTA CRUA DA SHOPEE:", data)
         except httpx.HTTPStatusError as e:
             raise HTTPException(status_code=502, detail=f"Shopee retornou erro: {e.response.status_code}")
         except Exception as e:
